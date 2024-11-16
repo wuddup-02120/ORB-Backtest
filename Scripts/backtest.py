@@ -16,9 +16,9 @@ def main(file_15min, file_5min, file_1min, output_file):
     print("Datasets loaded successfully.")
 
     # Filter data to start from January 1, 2020
-    data_15min = data_15min[data_15min.index >= '2020-01-01']
-    data_5min = data_5min[data_5min.index >= '2020-01-01']
-    data_1min = data_1min[data_1min.index >= '2020-01-01']
+    data_15min = data_15min[data_15min.index >= '2024-06-01']
+    data_5min = data_5min[data_5min.index >= '2024-06-01']
+    data_1min = data_1min[data_1min.index >= '2024-06-01']
 
     # Initialize results list
     results = []
@@ -90,7 +90,7 @@ def main(file_15min, file_5min, file_1min, output_file):
 
             # Define stop-loss and target based on RR level
             stop_loss = entry_price * (1 - rr) if direction == 'long' else entry_price * (1 + rr)
-            target = entry_price * (1 + rr) if direction == 'long' else entry_price * (1 - rr)
+            target = entry_price * (1 + 2 * rr) if direction == 'long' else entry_price * (1 - 2 * rr)
 
             # Simulate trade outcomes using 1-minute data
             day_1min = data_1min[data_1min.index.date >= entry_time.date()]

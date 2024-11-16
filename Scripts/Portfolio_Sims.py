@@ -6,12 +6,15 @@ import argparse
 def simulate_portfolio(file_path, initial_balance):
     data = pd.read_csv(file_path)
 
-    # Filter data to include only rows from July 2024 onward
-    data['Entry_Time'] = pd.to_datetime(data['Entry_Time'])  # Ensure Date column is in datetime format
-    data = data[data['Entry_Time'] >= '2024-07-01']
+    # Ensure Entry_Time and Exit_Time columns are in datetime format
+    data['Entry_Time'] = pd.to_datetime(data['Entry_Time'])
+    data['Exit_Time'] = pd.to_datetime(data['Exit_Time'])
+
+    # Filter data to include only rows from June 2024 onward
+    data = data[data['Entry_Time'] >= '2020-01-01']
 
     if data.empty:
-        print(f"No data available for the period starting July 2024 in file: {file_path}")
+        print(f"No data available for the period starting June 2024 in file: {file_path}")
         return None, None
 
     # Initialize variables
@@ -23,8 +26,15 @@ def simulate_portfolio(file_path, initial_balance):
     max_drawdown = 0
     peak_balance = initial_balance
 
+    # Track the last exit time
+    last_exit_time = None
+
     # Simulate trades
     for index, row in data.iterrows():
+        # Skip trades whose entry time is before the last trade's exit time
+        if last_exit_time and row['Entry_Time'] <= last_exit_time:
+            continue
+
         trade_return = (row['Percentage_Return'] / 100) * account_balance
         account_balance += trade_return
         cumulative_returns.append(account_balance)
@@ -41,6 +51,9 @@ def simulate_portfolio(file_path, initial_balance):
             peak_balance = account_balance
         drawdown = (peak_balance - account_balance) / peak_balance
         max_drawdown = max(max_drawdown, drawdown)
+
+        # Update the last exit time
+        last_exit_time = row['Exit_Time']
 
     # Calculate final statistics
     total_return = (account_balance - initial_balance) / initial_balance * 100
