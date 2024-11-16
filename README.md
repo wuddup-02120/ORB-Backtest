@@ -96,7 +96,6 @@ git lfs pull
 
 Below is a screenshot of the portfolio simulation results:
 
-![Simulation Results](Equity_Curve_Plots/sim_results_screenshot.png)
 
 ### Equity Curve Plots
 Below are the equity curve plots for different risk-reward levels:
