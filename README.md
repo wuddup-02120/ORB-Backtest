@@ -90,6 +90,77 @@ git lfs pull
 
 ---
 
+## Results Overview
+
+### Portfolio Simulation Results
+The following are the combined portfolio simulation results:
+- [Combined Portfolio Results](Portfolio_Sim_Results/combined_portfolio_sim_results.csv)
+
+### Equity Curve Plots
+Below are the equity curve plots for different risk-reward levels:
+
+#### RR Level 0.001
+![Equity Curve for RR 0.001](Equity_Curve_Plots/equity_curve_RR_0.001.png)
+
+#### RR Level 0.002
+![Equity Curve for RR 0.002](Equity_Curve_Plots/equity_curve_RR_0.002.png)
+
+#### RR Level 0.003
+![Equity Curve for RR 0.003](Equity_Curve_Plots/equity_curve_RR_0.003.png)
+
+#### RR Level 0.004
+![Equity Curve for RR 0.004](Equity_Curve_Plots/equity_curve_RR_0.004.png)
+
+#### RR Level 0.005
+![Equity Curve for RR 0.005](Equity_Curve_Plots/equity_curve_RR_0.005.png)
+
+#### RR Level 0.006
+![Equity Curve for RR 0.006](Equity_Curve_Plots/equity_curve_RR_0.006.png)
+
+#### RR Level 0.007
+![Equity Curve for RR 0.007](Equity_Curve_Plots/equity_curve_RR_0.007.png)
+
+#### RR Level 0.008
+![Equity Curve for RR 0.008](Equity_Curve_Plots/equity_curve_RR_0.008.png)
+
+#### RR Level 0.009
+![Equity Curve for RR 0.009](Equity_Curve_Plots/equity_curve_RR_0.009.png)
+
+#### RR Level 0.010
+![Equity Curve for RR 0.010](Equity_Curve_Plots/equity_curve_RR_0.010.png)
+
+#### RR Level 0.011
+![Equity Curve for RR 0.001](Equity_Curve_Plots/equity_curve_RR_0.011.png)
+
+#### RR Level 0.012
+![Equity Curve for RR 0.002](Equity_Curve_Plots/equity_curve_RR_0.012.png)
+
+#### RR Level 0.013
+![Equity Curve for RR 0.003](Equity_Curve_Plots/equity_curve_RR_0.013.png)
+
+#### RR Level 0.014
+![Equity Curve for RR 0.004](Equity_Curve_Plots/equity_curve_RR_0.014.png)
+
+#### RR Level 0.015
+![Equity Curve for RR 0.005](Equity_Curve_Plots/equity_curve_RR_0.015.png)
+
+#### RR Level 0.016
+![Equity Curve for RR 0.006](Equity_Curve_Plots/equity_curve_RR_0.016.png)
+
+#### RR Level 0.017
+![Equity Curve for RR 0.007](Equity_Curve_Plots/equity_curve_RR_0.017.png)
+
+#### RR Level 0.018
+![Equity Curve for RR 0.008](Equity_Curve_Plots/equity_curve_RR_0.018.png)
+
+#### RR Level 0.019
+![Equity Curve for RR 0.009](Equity_Curve_Plots/equity_curve_RR_0.019.png)
+
+#### RR Level 0.020
+![Equity Curve for RR 0.010](Equity_Curve_Plots/equity_curve_RR_0.020.png)
+
+---
+
 ## Example Workflow
 1. Resample raw data into 15-minute and 5-minute intervals.
 2. Run the backtest script on resampled data.
