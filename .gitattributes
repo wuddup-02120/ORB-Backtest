@@ -1,0 +1,4 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
+Datasets/large_file.csv filter=lfs diff=lfs merge=lfs -text
+Datasets/*.csv filter=lfs diff=lfs merge=lfs -text
+Datasets/SPY_full_1min_UNADJUSTED.txt filter=lfs diff=lfs merge=lfs -text
