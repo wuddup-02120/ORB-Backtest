@@ -92,9 +92,11 @@ git lfs pull
 
 ## Results Overview
 
-### Portfolio Simulation Results
-The following are the combined portfolio simulation results:
-- [Combined Portfolio Results](Portfolio_Sim_Results/combined_portfolio_sim_results.csv)
+## Simulation Results
+
+Below is a screenshot of the portfolio simulation results:
+
+![Simulation Results](Equity_Curve_Plots/sim_results_screenshot.png)
 
 ### Equity Curve Plots
 Below are the equity curve plots for different risk-reward levels:
