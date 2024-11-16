@@ -6,6 +6,14 @@ import argparse
 def simulate_portfolio(file_path, initial_balance):
     data = pd.read_csv(file_path)
 
+    # Filter data to include only rows from July 2024 onward
+    data['Entry_Time'] = pd.to_datetime(data['Entry_Time'])  # Ensure Date column is in datetime format
+    data = data[data['Entry_Time'] >= '2024-07-01']
+
+    if data.empty:
+        print(f"No data available for the period starting July 2024 in file: {file_path}")
+        return None, None
+
     # Initialize variables
     account_balance = initial_balance
     cumulative_returns = []
@@ -74,6 +82,9 @@ def main(input_directory, output_directory, equity_curve_directory, initial_bala
         print(f"Simulating portfolio for {rr_file}...")
         file_path = os.path.join(input_directory, rr_file)
         stats, equity_curve = simulate_portfolio(file_path, initial_balance)
+
+        if stats is None or equity_curve is None:
+            continue
 
         # Add RR level to stats
         rr_level = os.path.splitext(rr_file)[0].split('_')[-1]
