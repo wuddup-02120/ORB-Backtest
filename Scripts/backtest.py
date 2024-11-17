@@ -16,9 +16,9 @@ def main(file_15min, file_5min, file_1min, output_file):
     print("Datasets loaded successfully.")
 
     # Filter data to start from January 1, 2020
-    data_15min = data_15min[data_15min.index >= '2024-06-01']
-    data_5min = data_5min[data_5min.index >= '2024-06-01']
-    data_1min = data_1min[data_1min.index >= '2024-06-01']
+    data_15min = data_15min[data_15min.index >= '2020-01-01']
+    data_5min = data_5min[data_5min.index >= '2020-01-01']
+    data_1min = data_1min[data_1min.index >= '2020-01-01']
 
     # Initialize results list
     results = []
