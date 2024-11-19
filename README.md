@@ -88,6 +88,69 @@ git lfs pull
        --output_directory RR_Level_Datasets/
    ```
 
+# Opening Range Breakout Strategy Overview
+
+## Strategy Overview: Opening Range Breakout with Risk-Reward Levels
+
+### Objective
+The strategy aims to exploit intraday price movements by identifying breakout opportunities based on the first 15-minute price range after market open. By employing precise entry and exit criteria tied to risk-reward (RR) levels, this approach seeks to maximize returns while minimizing drawdowns.
+
+### Workflow and Logic
+
+1. **Data Inputs**:
+   - **15-Minute Data**: Used to calculate the opening range (high and low prices between 09:30 and 09:45).
+   - **5-Minute Data**: Used to detect breakout patterns and entry opportunities.
+   - **1-Minute Data**: Used for precise simulation of trade outcomes, including stop-loss and target evaluations.
+
+2. **Range Identification**:
+   - For each trading day, the high and low prices of the first 15-minute candle (09:30–09:45) are extracted to define the opening range.
+
+3. **Breakout Detection**:
+   - After the range is established, the strategy monitors price movements from 09:50 to 11:30 using 5-minute data.
+   - A breakout is identified if:
+     - The **closing price** of a 5-minute candle moves above the range high (for a long trade) or below the range low (for a short trade).
+
+4. **Re-Entry Criteria**:
+   - For a valid entry:
+     - Long trades require a pullback below the range high, followed by a close back above it.
+     - Short trades require a pullback above the range low, followed by a close back below it.
+
+5. **Trade Execution**:
+   - **Entry Price**: Determined based on the re-entry candle's close price.
+   - **Stop-Loss**: Set based on the risk level:
+     - Long: `entry_price - (entry_price * RR)`
+     - Short: `entry_price + (entry_price * RR)`
+   - **Target**: Defined as twice the risk level:
+     - Long: `entry_price + (entry_price * 2 * RR)`
+     - Short: `entry_price - (entry_price * 2 * RR)`
+
+6. **Outcome Simulation**:
+   - Using 1-minute data, the strategy evaluates each trade until either the target or stop-loss is hit.
+   - If no condition is met during the trading session, the trade remains open and is marked as active.
+
+7. **Performance Metrics**:
+   - **Percentage Return**: The profit or loss as a percentage of the entry price.
+   - **Maximum Drawdown**: The largest unfavorable price movement during the trade, expressed as a percentage of the entry price.
+
+### Risk-Reward Levels
+The strategy systematically tests a range of RR levels from **0.001 (0.10%) to 0.020 (2%)** in increments of 0.001. This allows for detailed analysis of the profitability and risk dynamics across varying risk-reward thresholds.
+
+### Outputs
+The results of the backtest are saved in a CSV file with the following key metrics:
+- Risk-Reward Level (`RR_Level`)
+- Trade Direction (`Direction`): Long or Short
+- Entry Time and Price
+- Exit Time and Price
+- Maximum Drawdown (`Max_Drawdown`)
+- Percentage Return (`Percentage_Return`)
+
+### Example Use Case
+This strategy is particularly suited for intraday traders aiming to capture early session momentum with predefined risk management. It allows for flexible adjustments to risk-reward levels to align with individual trading styles or market conditions.
+
+### How to Run the Backtest
+To execute the strategy, use the following command:
+```bash
+python your_script.py --file_15min path_to_15min_data.csv --file_5min path_to_5min_data.csv --file_1min path_to_1min_data.csv --output_file backtest_results.csv
 ---
 
 ## Results Overview
