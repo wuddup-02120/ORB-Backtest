@@ -88,7 +88,7 @@ git lfs pull
        --output_directory RR_Level_Datasets/
    ```
 
-# Opening Range Breakout Strategy Overview
+# Opening Range Breakout Strategy
 
 ## Strategy Overview: Opening Range Breakout with Risk-Reward Levels
 
@@ -151,7 +151,7 @@ This strategy is particularly suited for intraday traders aiming to capture earl
 To execute the strategy, use the following command:
 ```bash
 python your_script.py --file_15min path_to_15min_data.csv --file_5min path_to_5min_data.csv --file_1min path_to_1min_data.csv --output_file backtest_results.csv
----
+```
 
 ## Results Overview
 
