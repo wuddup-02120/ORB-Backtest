@@ -224,7 +224,7 @@ Below are the equity curve plots for different risk-reward levels:
 #### RR Level 0.020
 ![Equity Curve for RR 0.010](Equity_Curve_Plots/equity_curve_RR_0.020.png)
 
-Below is a screenshot of the portfolio simulation results for 1:1 RR:
+Below is a screenshot of the portfolio simulation results for 1:2 RR:
 
 ![Simulation Results](Equity_Curve_Plots_1_2_RR/1_2_RR_backtest_results.png)
 
